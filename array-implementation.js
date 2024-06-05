@@ -35,6 +35,18 @@ class MyArray {
     this.length--
     return item
     */
+
+    /** --- 2. Another implementation | Keeping the code clean --- */
+    this.shiftItems(index)
+  }
+
+  shiftItems(index) {
+    for (let i = index; i < this.data.length - 1; i++) {
+      this.data[index] = this.data[index + 1]
+    }
+
+    delete this.data[this.length - 1]
+    this.length--
   }
 }
 
