@@ -38,6 +38,7 @@ class MyArray {
 
     /** --- 2. Another implementation | Keeping the code clean --- */
     this.shiftItems(index)
+    return item
   }
 
   shiftItems(index) {
