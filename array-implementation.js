@@ -40,9 +40,9 @@ class MyArray {
     this.shiftItems(index)
     return item
   }
-
+  // General Shifting Technique
   shiftItems(index) {
-    for (let i = index; i < this.data.length - 1; i++) {
+    for (let i = index; i < this.length - 1; i++) {
       this.data[index] = this.data[index + 1]
     }
 
@@ -59,3 +59,47 @@ colors.push('teal')
 
 colors.delete(2)
 console.log(colors)
+
+class ArrayImplementation {
+  constructor() {
+    this.length = 0
+    this.data = {}
+  }
+
+  get(index) {
+    return this.data[index]
+  }
+
+  push(item) {
+    this.data[this.length] = item
+    this.length += 1
+  }
+
+  pop() {
+    let value = this.data[this.length - 1]
+    delete this.data[this.length - 1]
+    this.length -= 1
+    return value
+  }
+
+  remove(index) {
+    const itemToDelete = this.data[index]
+
+    for (let i = index; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1]
+    }
+
+    delete this.data[this.length - 1]
+
+    return itemToDelete
+  }
+}
+
+const arr = new ArrayImplementation()
+
+arr.push(10)
+arr.push(70)
+arr.push('45')
+
+arr.remove(1)
+console.log(arr)
